@@ -13,7 +13,8 @@ function pintarArregloIzquierda(){
 
     for(let i = 0;i<arregloIzquierdo.length;i++){  
         contenido += "<tr><td>"+arregloIzquierdo[i]
-        +"</td><td><button class='btn-eliminar' onclick='eliminarIzquierdo("+i+")'>Eliminar</button></td><td><button class='btn-mover'>➜</button></td></tr>";
+        +"</td><td><button class='btn-eliminar' onclick='eliminarIzquierdo("+i
+        +")'>Eliminar</button></td><td><button class='btn-mover'>➜</button></td></tr>";
     }
     cmpTabla.innerHTML = contenido;
 }
@@ -21,4 +22,21 @@ function pintarArregloIzquierda(){
 function eliminarIzquierdo(indice){
     arregloIzquierdo.splice(indice,1);
     pintarArregloIzquierda();
+}
+
+function pintarArregloDerecha(){
+    let cmpTabla = document.getElementById("tablaDerecha");
+    let contenido = "";
+
+    for(let i = 0;i<arregloDerecho.length;i++){  
+        contenido += "<tr><td><button class='btn-mover'>⬅</button></td><td>"+arregloDerecho[i]
+        +"</td><td><button class='btn-eliminar' onclick='eliminarDerecho("+i
+        +")'>Eliminar</button></td></tr>";
+    }
+    cmpTabla.innerHTML = contenido;
+}
+
+function eliminarDerecho(indice){
+    arregloDerecho.splice(indice,1);
+    pintarArregloDerecha();
 }
