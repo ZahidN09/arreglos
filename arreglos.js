@@ -30,7 +30,8 @@ function pintarArregloDerecha(){
     let contenido = "";
 
     for(let i = 0;i<arregloDerecho.length;i++){  
-        contenido += "<tr><td><button class='btn-mover'>⬅</button></td><td>"+arregloDerecho[i]
+        contenido += "<tr><td><button class='btn-mover' onclick='moverHaciaIzquierda("+i
+        +");'>⬅</button></td><td>"+arregloDerecho[i]
         +"</td><td><button class='btn-eliminar' onclick='eliminarDerecho("+i
         +")'>Eliminar</button></td></tr>";
     }
@@ -45,6 +46,14 @@ function moverHaciaDerecha(indice){
     let num = arregloIzquierdo[indice];
     arregloDerecho.push(num);
     arregloIzquierdo.splice(indice,1);
+    pintarArregloDerecha();
+    pintarArregloIzquierda();
+}
+
+function moverHaciaIzquierda(indice){
+    let num = arregloDerecho[indice];
+    arregloIzquierdo.push(num);
+    arregloDerecho.splice(indice,1);
     pintarArregloDerecha();
     pintarArregloIzquierda();
 }
